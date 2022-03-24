@@ -1,0 +1,67 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block title %}S'inscrire
+{% endblock %}
+{% block content %}
+
+
+
+    
+    <link rel="stylesheet" href="{% static 'css/signin.css'%}">
+<center>
+    <br><br><br><br><br>
+    <div class="container1">
+        <div class="header1">
+            <h4>Creer votre compte</h4>
+        </div>
+        <form method="POST" action="" class="form1">
+            {% csrf_token %}
+            <div class="form-control1">
+                <label for="username">Nom de compte :</label>
+                {{form.username}}
+                
+            </div>
+            <div class="form-control1">
+                <label for="username">Email :</label>
+                {{form.email}}
+        
+            </div>
+            <div class="form-control1">
+                <label for="username">Mot de passe :</label>
+                {{form.password1}}
+               
+            </div>
+            <div class="form-control1">
+                <label for="username">Retapez votre mot de passe :</label>
+               {{form.password2}}
+                
+            </div>
+            <div class="d-flex justify-content-center mt-3 login_container">
+                <input class="btn btn-primary" type="submit" value="Register Account">
+            </div>
+			<hr>
+			Vous avez deja un compte ? <a href="{% url "store:login" %}" class="ml-2">Connecter-vous</a>
+        </form>
+    </div><br>
+    {{form.errors}}
+</center>
+    
+<script>
+		
+	var form_fields = document.getElementsByTagName('input')
+	form_fields[1].placeholder='Nom de compte...';
+	form_fields[2].placeholder='Email..';
+	form_fields[3].placeholder='Entrer mot de passe...';
+	form_fields[4].placeholder='Re-entrer mot de passe...';
+
+
+	for (var field in form_fields){	
+		form_fields[field].className += ' form-control'
+	}
+</script>
+    
+    
+    
+{% endblock %}
+
+

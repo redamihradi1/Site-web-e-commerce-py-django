@@ -1,0 +1,21 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block title %}Admin{% endblock %}
+{% block content %}
+
+<center><h1>Gaming store admin</h1></center><hr>
+
+<div>
+    <a  href="{% url "store:categoryList" %}">Categorie</a>
+</div>
+
+<hr>
+
+<div>
+    <a href="{% url "store:productList" %}">Produit</a>
+</div>
+
+<hr>
+
+
+{% endblock %}

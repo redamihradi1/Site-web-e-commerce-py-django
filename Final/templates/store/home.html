@@ -1,0 +1,44 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block title %}Gaming store{% endblock %}
+{% block content %}
+
+
+<main>
+
+
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="lead"><center>Tout nos produits</center> </div><br>
+      
+      
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+
+        {% for product in products %}
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <a href="{{ product.get_absolute_url }}"><img class="img-fluid" alt="Responsive image" src="{{ product.image.url }}"></a>
+            <div class="card-body">
+              <p class="card-text">
+                <a class="text-dark text-decoration-none" href="{{ product.get_absolute_url }}">{{ product.title }}</a>
+              </p>
+              <p class="card-text">
+                <a class="text-dark text-decoration-none" href="{{ product.get_absolute_url }}"> {{ product.price}} Dhs</a>
+              </p>
+            </div>
+          </div><br>
+        </div>
+        
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+
+
+</main>
+
+{% endblock %}

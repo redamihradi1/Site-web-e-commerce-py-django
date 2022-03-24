@@ -1,0 +1,39 @@
+{% extends "../base.html" %}
+{% block title %}Listes des categories{% endblock %}
+{% block content %}
+<div class="container">
+  <a href="{% url 'store:categoryCreate' %}" class="btn btn-link">Nouvelle categorie</a> 
+  <a href="{% url 'store:adminstore' %}" class="btn btn-info" > Menu Admin</a>
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for category in categories %}
+            <tr>
+              <th scope="row">{{category.id}}</th>
+              <td>{{category.name}}</td>
+              <td>{{category.slug}}</td>
+              <td>
+                <td> <a href="{% url 'store:categoryUpdate' category.id %}">Modifer</a></td>
+                <td> <a href="{% url 'store:categoryDelete' category.id %}">Supprimer</a></td>
+                </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
+    
+{% endblock %}

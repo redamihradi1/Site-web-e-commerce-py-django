@@ -1,0 +1,15 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block title %}Admin{% endblock %}
+{% block content %}
+<br><br><br><br>
+<center>
+<form method="POST">
+  {% csrf_token %}
+  Vous etes sur de vouloir supprimer cette catégorie :  
+  <input type="submit" value="Oui" class="btn btn-danger">
+  <a href="{% url 'store:categoryList' %}" class="btn btn-warning">Annuler</a>
+</form>
+</center>
+<br><br><br><br>
+{% endblock %}
